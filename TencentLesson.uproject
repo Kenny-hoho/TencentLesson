@@ -1,0 +1,22 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{BAFB007F-4AEF-BF3A-9A80-608B7C48F463}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "TencentLesson",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		}
+	]
+}
