@@ -48,7 +48,7 @@ AMyCharacter::AMyCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 	// InteractComponent
-	InteractComponent = CreateDefaultSubobject<UInteractComponent>(TEXT("InteractComp"));
+	 InteractComponent = CreateDefaultSubobject<UInteractComponent>(TEXT("InteractComp"));
 }
 
 // Called when the game starts or when spawned
@@ -66,22 +66,6 @@ void AMyCharacter::BeginPlay()
 	}
 }
 
-void AMyCharacter::Move(const FInputActionValue& Value)
-{
-	float MovementDir = Value.Get<float>();
-
-	AddMovementInput(FVector(0, 1, 0), MovementDir);
-
-	// GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Blue, FString::Printf(TEXT("%f"), MovementDir));
-}
-
-// Called every frame
-void AMyCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
 // Called to bind functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -96,4 +80,15 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
 	}
 }
+
+void AMyCharacter::Move(const FInputActionValue& Value)
+{
+	float MovementDir = Value.Get<float>();
+
+	AddMovementInput(FVector(0, 1, 0), MovementDir);
+
+	// GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Blue, FString::Printf(TEXT("%f"), MovementDir));
+}
+
+
 
